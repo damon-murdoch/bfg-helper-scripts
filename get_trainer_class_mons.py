@@ -1,103 +1,115 @@
 # Showdown Data
 import src.showdown as showdown
 
-facility_classes = [
-  'FACILITY_CLASS_HIKER', # 0x0
-  'FACILITY_CLASS_AQUA_GRUNT_M', # 0x1
-  'FACILITY_CLASS_PKMN_BREEDER_F', # 0x2
-  'FACILITY_CLASS_COOLTRAINER_M', # 0x3
-  'FACILITY_CLASS_BIRD_KEEPER', # 0x4
-  'FACILITY_CLASS_COLLECTOR', # 0x5
-  'FACILITY_CLASS_AQUA_GRUNT_F', # 0x6
-  'FACILITY_CLASS_SWIMMER_M', # 0x7
-  'FACILITY_CLASS_MAGMA_GRUNT_M', # 0x8
-  'FACILITY_CLASS_EXPERT_M', # 0x9
-  'FACILITY_CLASS_BLACK_BELT', # 0xa
-  'FACILITY_CLASS_AQUA_LEADER_ARCHIE', # 0xb
-  'FACILITY_CLASS_HEX_MANIAC', # 0xc
-  'FACILITY_CLASS_AROMA_LADY', # 0xd
-  'FACILITY_CLASS_RUIN_MANIAC', # 0xe
-  'FACILITY_CLASS_INTERVIEWER', # 0xf
-  'FACILITY_CLASS_TUBER_F', # 0x10
-  'FACILITY_CLASS_TUBER_M', # 0x11
-  'FACILITY_CLASS_COOLTRAINER_F', # 0x12
-  'FACILITY_CLASS_LADY', # 0x13
-  'FACILITY_CLASS_BEAUTY', # 0x14
-  'FACILITY_CLASS_RICH_BOY', # 0x15
-  'FACILITY_CLASS_EXPERT_F', # 0x16
-  'FACILITY_CLASS_POKEMANIAC', # 0x17
-  'FACILITY_CLASS_MAGMA_GRUNT_F', # 0x18
-  'FACILITY_CLASS_GUITARIST', # 0x19
-  'FACILITY_CLASS_KINDLER', # 0x1a
-  'FACILITY_CLASS_CAMPER', # 0x1b
-  'FACILITY_CLASS_PICNICKER', # 0x1c
-  'FACILITY_CLASS_BUG_MANIAC', # 0x1d
-  'FACILITY_CLASS_PSYCHIC_M', # 0x1e
-  'FACILITY_CLASS_PSYCHIC_F', # 0x1f
-  'FACILITY_CLASS_GENTLEMAN', # 0x20
-  'FACILITY_CLASS_ELITE_FOUR_SIDNEY', # 0x21
-  'FACILITY_CLASS_ELITE_FOUR_PHOEBE', # 0x22
-  'FACILITY_CLASS_LEADER_ROXANNE', # 0x23
-  'FACILITY_CLASS_LEADER_BRAWLY', # 0x24
-  'FACILITY_CLASS_LEADER_TATE_AND_LIZA', # 0x25
-  'FACILITY_CLASS_SCHOOL_KID_M', # 0x26
-  'FACILITY_CLASS_SCHOOL_KID_F', # 0x27
-  'FACILITY_CLASS_SR_AND_JR', # 0x28
-  'FACILITY_CLASS_POKEFAN_M', # 0x29
-  'FACILITY_CLASS_POKEFAN_F', # 0x2a
-  'FACILITY_CLASS_YOUNGSTER', # 0x2b
-  'FACILITY_CLASS_CHAMPION_WALLACE', # 0x2c
-  'FACILITY_CLASS_FISHERMAN', # 0x2d
-  'FACILITY_CLASS_CYCLING_TRIATHLETE_M', # 0x2e
-  'FACILITY_CLASS_CYCLING_TRIATHLETE_F', # 0x2f
-  'FACILITY_CLASS_RUNNING_TRIATHLETE_M', # 0x30
-  'FACILITY_CLASS_RUNNING_TRIATHLETE_F', # 0x31
-  'FACILITY_CLASS_SWIMMING_TRIATHLETE_M', # 0x32
-  'FACILITY_CLASS_SWIMMING_TRIATHLETE_F', # 0x33
-  'FACILITY_CLASS_DRAGON_TAMER', # 0x34
-  'FACILITY_CLASS_NINJA_BOY', # 0x35
-  'FACILITY_CLASS_BATTLE_GIRL', # 0x36
-  'FACILITY_CLASS_PARASOL_LADY', # 0x37
-  'FACILITY_CLASS_SWIMMER_F', # 0x38
-  'FACILITY_CLASS_TWINS', # 0x39
-  'FACILITY_CLASS_SAILOR', # 0x3a
-  'FACILITY_CLASS_WALLY', # 0x3b
-  'FACILITY_CLASS_BRENDAN', # 0x3c
-  'FACILITY_CLASS_BRENDAN_2', # 0x3d
-  'FACILITY_CLASS_BRENDAN_3', # 0x3e
-  'FACILITY_CLASS_MAY', # 0x3f
-  'FACILITY_CLASS_MAY_2', # 0x40
-  'FACILITY_CLASS_MAY_3', # 0x41
-  'FACILITY_CLASS_PKMN_BREEDER_M', # 0x42
-  'FACILITY_CLASS_BUG_CATCHER', # 0x43
-  'FACILITY_CLASS_PKMN_RANGER_M', # 0x44
-  'FACILITY_CLASS_PKMN_RANGER_F', # 0x45
-  'FACILITY_CLASS_MAGMA_LEADER_MAXIE', # 0x46
-  'FACILITY_CLASS_LASS', # 0x47
-  'FACILITY_CLASS_YOUNG_COUPLE', # 0x48
-  'FACILITY_CLASS_OLD_COUPLE', # 0x49
-  'FACILITY_CLASS_SIS_AND_BRO', # 0x4a
-  'FACILITY_CLASS_STEVEN', # 0x4b
-  'FACILITY_CLASS_SALON_MAIDEN_ANABEL', # 0x4c
-  'FACILITY_CLASS_DOME_ACE_TUCKER', # 0x4d
-  'FACILITY_CLASS_RED', # 0x4e
-  'FACILITY_CLASS_LEAF', # 0x4f
-  'FACILITY_CLASS_RS_BRENDAN', # 0x50
-  'FACILITY_CLASS_RS_MAY' # 0x51
+import math
+import os
+
+OUTPUT_DIRECTORY = "out"
+OUTPUT_FILENAME = "battle_frontier_generator_trainer_class_mons.h"
+
+eevees = [
+    "jolteon", "flareon", "umbreon",
+    "leafeon", "sylveon", "glaceon",
+    "espeon", "vaporean", "eevee",
 ]
+
+regis = [
+    "regirock", "regice", "registeel",
+    "regigigas", "regidrago", "regieleki"
+]
+
+trainer_classes = [
+    'TRAINER_CLASS_HIKER',
+    # 'TRAINER_CLASS_TEAM_AQUA',
+    'TRAINER_CLASS_PKMN_BREEDER',
+    'TRAINER_CLASS_COOLTRAINER',
+    'TRAINER_CLASS_BIRD_KEEPER',
+    'TRAINER_CLASS_COLLECTOR',
+    'TRAINER_CLASS_SWIMMER_M',
+    # 'TRAINER_CLASS_TEAM_MAGMA',
+    'TRAINER_CLASS_EXPERT',
+    # 'TRAINER_CLASS_AQUA_ADMIN',
+    'TRAINER_CLASS_BLACK_BELT',
+    # 'TRAINER_CLASS_AQUA_LEADER',
+    'TRAINER_CLASS_HEX_MANIAC',
+    'TRAINER_CLASS_AROMA_LADY',
+    'TRAINER_CLASS_RUIN_MANIAC',
+    # 'TRAINER_CLASS_INTERVIEWER',
+    'TRAINER_CLASS_TUBER_F',
+    'TRAINER_CLASS_TUBER_M',
+    'TRAINER_CLASS_LADY',
+    'TRAINER_CLASS_BEAUTY',
+    'TRAINER_CLASS_RICH_BOY',
+    'TRAINER_CLASS_POKEMANIAC',
+    'TRAINER_CLASS_GUITARIST',
+    'TRAINER_CLASS_KINDLER',
+    'TRAINER_CLASS_CAMPER',
+    'TRAINER_CLASS_PICNICKER',
+    'TRAINER_CLASS_BUG_MANIAC',
+    'TRAINER_CLASS_PSYCHIC',
+    'TRAINER_CLASS_GENTLEMAN',
+    # 'TRAINER_CLASS_ELITE_FOUR',
+    # 'TRAINER_CLASS_LEADER',
+    'TRAINER_CLASS_SCHOOL_KID',
+    # 'TRAINER_CLASS_SR_AND_JR',
+    # 'TRAINER_CLASS_WINSTRATE',
+    'TRAINER_CLASS_POKEFAN',
+    'TRAINER_CLASS_YOUNGSTER',
+    # 'TRAINER_CLASS_CHAMPION',
+    'TRAINER_CLASS_FISHERMAN',
+    'TRAINER_CLASS_TRIATHLETE',
+    'TRAINER_CLASS_DRAGON_TAMER',
+    'TRAINER_CLASS_NINJA_BOY',
+    'TRAINER_CLASS_BATTLE_GIRL',
+    'TRAINER_CLASS_PARASOL_LADY',
+    'TRAINER_CLASS_SWIMMER_F',
+    # 'TRAINER_CLASS_TWINS',
+    'TRAINER_CLASS_SAILOR',
+    'TRAINER_CLASS_COOLTRAINER_2',
+    # 'TRAINER_CLASS_MAGMA_ADMIN',
+    # 'TRAINER_CLASS_RIVAL',
+    'TRAINER_CLASS_BUG_CATCHER',
+    'TRAINER_CLASS_PKMN_RANGER',
+    # 'TRAINER_CLASS_MAGMA_LEADER',
+    'TRAINER_CLASS_LASS',
+    # 'TRAINER_CLASS_YOUNG_COUPLE',
+    # 'TRAINER_CLASS_OLD_COUPLE',
+    # 'TRAINER_CLASS_SIS_AND_BRO',
+    # 'TRAINER_CLASS_SALON_MAIDEN',
+    # 'TRAINER_CLASS_DOME_ACE',
+    # 'TRAINER_CLASS_PALACE_MAVEN',
+    # 'TRAINER_CLASS_ARENA_TYCOON',
+    # 'TRAINER_CLASS_FACTORY_HEAD',
+    # 'TRAINER_CLASS_PIKE_QUEEN',
+    # 'TRAINER_CLASS_PYRAMID_KING',
+    # 'TRAINER_CLASS_RS_PROTAG',
+]
+
 
 def convert_const_to_camel(const):
     parts = const.split('_')
     return parts[0].lower() + ''.join(word.capitalize() for word in parts[1:])
 
 # Convert move name to MOVE_NAME
+
+
 def get_species_constant(species_name):
     constant = species_name.upper()
 
     constant = constant.replace(" ", "_").replace("-", "_")
-    constant = constant.replace("'", "").replace(":","").replace("%","")
-    
+    constant = constant.replace("’", "").replace(
+        ":", "").replace("%", "").replace(".", "")
+
     return f"SPECIES_{constant}"
+
+
+def is_tagged(species, tag):
+    return "tags" in species and tag in species["tags"]
+
+
+def is_forme(species, forme):
+    return "forme" in species and species["forme"] == forme
+
 
 # Main Process
 if __name__ == '__main__':
@@ -118,7 +130,7 @@ if __name__ == '__main__':
             if "forme" in species:
                 forme = species["forme"]
                 if not (forme == "Alola" or forme == "Galar" or forme == "Hisui" or forme == "Paldea"):
-                    continue # Skip non-regional variants
+                    continue  # Skip non-regional variants
 
         # Add species id to list
         pokemon.append(speciesId)
@@ -126,9 +138,10 @@ if __name__ == '__main__':
     # Class species table
     classes = {}
     classes_lookup = {}
-    for facility_class in facility_classes:
-        classes[facility_class] = []
-        classes_lookup[facility_class] = convert_const_to_camel(f"G_SPECIES_LIST_{facility_class}")
+    for trainer_class in trainer_classes:
+        classes[trainer_class] = []
+        classes_lookup[trainer_class] = convert_const_to_camel(
+            f"G_SPECIES_LIST_{trainer_class}")
 
     # Lookup table of species which have appeared
     # in at least one facility class species list
@@ -136,11 +149,134 @@ if __name__ == '__main__':
 
     # Set all defaults to zero
     for speciesId in pokemon:
+        species = POKEMON[speciesId]
         coverage[speciesId] = 0
 
-    # TODO: GENERATE LOOKUP
-        
-    # Sort ratings from highest to lowest
-    coverage_sorted = sorted(coverage.items(), key=lambda x: x[1], reverse=True)
+        for type in species["types"]:
+            # Most Common Types
+            if type == "Normal":
+                for trainer_class in trainer_classes:  # All Trainer Classes
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Water":
+                for trainer_class in ["TRAINER_CLASS_POKEFAN", "TRAINER_CLASS_COOLTRAINER", "TRAINER_CLASS_COOLTRAINER_2", "TRAINER_CLASS_GENTLEMAN", "TRAINER_CLASS_TUBER_M", "TRAINER_CLASS_TUBER_F", "TRAINER_CLASS_SWIMMER_M", "TRAINER_CLASS_SWIMMER_F", "TRAINER_CLASS_FISHERMAN", "TRAINER_CLASS_SAILOR", "TRAINER_CLASS_COLLECTOR", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_LADY", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_PKMN_BREEDER", "TRAINER_CLASS_DRAGON_TAMER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Fire":
+                for trainer_class in ["TRAINER_CLASS_POKEFAN", "TRAINER_CLASS_COOLTRAINER", "TRAINER_CLASS_COOLTRAINER_2", "TRAINER_CLASS_GENTLEMAN", "TRAINER_CLASS_COLLECTOR", "TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_LADY", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_PKMN_BREEDER", "TRAINER_CLASS_DRAGON_TAMER", "TRAINER_CLASS_CAMPER", "TRAINER_CLASS_PICNICKER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Grass":
+                for trainer_class in ["TRAINER_CLASS_POKEFAN", "TRAINER_CLASS_COOLTRAINER", "TRAINER_CLASS_COOLTRAINER_2", "TRAINER_CLASS_GENTLEMAN", "TRAINER_CLASS_AROMA_LADY", "TRAINER_CLASS_COLLECTOR", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_LADY", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_CAMPER", "TRAINER_CLASS_PICNICKER", "TRAINER_CLASS_PKMN_BREEDER", "TRAINER_CLASS_PKMN_RANGER", "TRAINER_CLASS_LASS", "TRAINER_CLASS_YOUNGSTER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Electric":
+                for trainer_class in ["TRAINER_CLASS_POKEFAN", "TRAINER_CLASS_COOLTRAINER", "TRAINER_CLASS_COOLTRAINER_2", "TRAINER_CLASS_GENTLEMAN", "TRAINER_CLASS_BEAUTY", "TRAINER_CLASS_PARASOL_LADY", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_CAMPER", "TRAINER_CLASS_PICNICKER", "TRAINER_CLASS_PKMN_BREEDER", "TRAINER_CLASS_COLLECTOR", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_SCHOOL_KID", "TRAINER_CLASS_LASS", "TRAINER_CLASS_YOUNGSTER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Flying" or "Levitate" in species["abilities"].values():
+                for trainer_class in ["TRAINER_CLASS_POKEFAN", "TRAINER_CLASS_BIRD_KEEPER", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_LADY", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_CAMPER", "TRAINER_CLASS_PICNICKER", "TRAINER_CLASS_PKMN_BREEDER", "TRAINER_CLASS_PSYCHIC", "TRAINER_CLASS_PKMN_RANGER", "TRAINER_CLASS_SCHOOL_KID", "TRAINER_CLASS_LASS", "TRAINER_CLASS_YOUNGSTER", "TRAINER_CLASS_SCHOOL_KID"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            # Regular Types
+            elif type == "Fighting":
+                for trainer_class in ["TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_HIKER", "TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_SAILOR", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_NINJA_BOY", "TRAINER_CLASS_PKMN_RANGER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Poison":
+                for trainer_class in ["TRAINER_CLASS_HEX_MANIAC", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_CAMPER", "TRAINER_CLASS_PICNICKER", "TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_DRAGON_TAMER", "TRAINER_CLASS_NINJA_BOY"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Ground":
+                for trainer_class in ["TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_HIKER", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_NINJA_BOY"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Rock" or is_forme(species, "Hisui") or is_tagged(species, "Paradox"):
+                for trainer_class in ["TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_HIKER", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_NINJA_BOY"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Bug":
+                for trainer_class in ["TRAINER_CLASS_PKMN_RANGER", "TRAINER_CLASS_CAMPER", "TRAINER_CLASS_PICNICKER", "TRAINER_CLASS_BUG_CATCHER", "TRAINER_CLASS_BUG_MANIAC", "TRAINER_CLASS_FISHERMAN", "TRAINER_CLASS_SCHOOL_KID", "TRAINER_CLASS_LASS", "TRAINER_CLASS_YOUNGSTER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Ghost":
+                for trainer_class in ["TRAINER_CLASS_HEX_MANIAC", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_DRAGON_TAMER", "TRAINER_CLASS_NINJA_BOY", "TRAINER_CLASS_YOUNGSTER", "TRAINER_CLASS_GENTLEMAN"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Steel":
+                for trainer_class in ["TRAINER_CLASS_COOLTRAINER", "TRAINER_CLASS_COOLTRAINER_2", "TRAINER_CLASS_GENTLEMAN", "TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_HIKER", "TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_DRAGON_TAMER"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Psychic":
+                for trainer_class in ["TRAINER_CLASS_BEAUTY", "TRAINER_CLASS_PARASOL_LADY", "TRAINER_CLASS_AROMA_LADY", "TRAINER_CLASS_HEX_MANIAC", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_LADY", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_PSYCHIC"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Ice":
+                for trainer_class in ["TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_BEAUTY", "TRAINER_CLASS_PARASOL_LADY", "TRAINER_CLASS_TUBER_M", "TRAINER_CLASS_TUBER_F", "TRAINER_CLASS_SWIMMER_M", "TRAINER_CLASS_SWIMMER_F", "TRAINER_CLASS_FISHERMAN", "TRAINER_CLASS_TRIATHLETE"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Dark":
+                for trainer_class in ["TRAINER_CLASS_HEX_MANIAC", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_GUITARIST", "TRAINER_CLASS_KINDLER", "TRAINER_CLASS_BATTLE_GIRL", "TRAINER_CLASS_BLACK_BELT", "TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_DRAGON_TAMER", "TRAINER_CLASS_NINJA_BOY"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            elif type == "Fairy":
+                for trainer_class in ["TRAINER_CLASS_POKEFAN", "TRAINER_CLASS_BEAUTY", "TRAINER_CLASS_PARASOL_LADY", "TRAINER_CLASS_AROMA_LADY", "TRAINER_CLASS_TRIATHLETE", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_LADY", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_LASS"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
+            # Rarest Type
+            elif type == "Dragon":
+                for trainer_class in ["TRAINER_CLASS_COOLTRAINER", "TRAINER_CLASS_COOLTRAINER_2", "TRAINER_CLASS_GENTLEMAN", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_POKEMANIAC", "TRAINER_CLASS_DRAGON_TAMER", "TRAINER_CLASS_NINJA_BOY"]:
+                    classes[trainer_class].append(speciesId)
+                    coverage[speciesId] += 1
 
-    print(coverage_sorted)
+        # Special cases for specific trainer classes
+
+        # Regirock / Regice / Registeel
+        if speciesId in regis:
+            for trainer_class in ["TRAINER_CLASS_RUIN_MANIAC", "TRAINER_CLASS_EXPERT", "TRAINER_CLASS_PSYCHIC"]:
+                classes[trainer_class].append(speciesId)
+                coverage[speciesId] += 1
+
+        if speciesId in eevees:
+            for trainer_class in ["TRAINER_CLASS_LADY", "TRAINER_CLASS_RICH_BOY", "TRAINER_CLASS_BEAUTY"]:
+                classes[trainer_class].append(speciesId)
+                coverage[speciesId] += 1
+
+    print(f"Generating output content ...")
+
+    # Create output content
+    output = [
+        "// File Auto-Generated By bfg-helper-scripts (get_trainer_class_mons.py)",
+        "// Repository Link: https://github.com/damon-murdoch/bfg-helper-scripts",
+        "// Warning: Some moves may need to be renamed or removed depending on your project!",
+        "",
+        "const u16 * gBattleFrontierTrainerClassSpeciesLookup[TRAINER_CLASS_COUNT] = {"
+    ]
+
+    # Loop over the trainer classes
+    for trainer_class in trainer_classes:
+        output.append(
+            f"\t[{trainer_class}] = {classes_lookup[trainer_class]},")
+
+    output.append("};\n\n")
+
+    for trainer_class in trainer_classes:
+        class_list = sorted(list(set(classes[trainer_class])))
+        output.append(
+            f"const u16 {classes_lookup[trainer_class]}[{len(class_list)}] = " + "{")
+        for speciesId in class_list:
+            species = POKEMON[speciesId]
+            constant = get_species_constant(species["name"])
+            output.append(f"\t{constant},")
+
+        output.append("};\n")
+
+    os.makedirs(OUTPUT_DIRECTORY, exist_ok=True)
+    outpath = os.path.join(OUTPUT_DIRECTORY, OUTPUT_FILENAME)
+
+    print(f"Writing results to file '{outpath}' ...")
+
+    with open(outpath, "w+", encoding="utf8") as f:
+        f.write("\n".join(output))
+
+    print("Results saved successfully!")
