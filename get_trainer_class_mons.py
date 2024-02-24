@@ -137,7 +137,7 @@ trainer_classes = [
     "TRAINER_CLASS_SWIMMER_F",
     # 'TRAINER_CLASS_TWINS',
     "TRAINER_CLASS_SAILOR",
-    "TRAINER_CLASS_COOLTRAINER_2",
+    # "TRAINER_CLASS_COOLTRAINER_2",
     # 'TRAINER_CLASS_MAGMA_ADMIN',
     # 'TRAINER_CLASS_RIVAL',
     "TRAINER_CLASS_BUG_CATCHER",
@@ -317,7 +317,7 @@ if __name__ == "__main__":
                 for trainer_class in [
                     # "TRAINER_CLASS_POKEFAN",
                     "TRAINER_CLASS_COOLTRAINER",
-                    "TRAINER_CLASS_COOLTRAINER_2",
+                    # "TRAINER_CLASS_COOLTRAINER_2",
                     # "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_COLLECTOR",
                     # "TRAINER_CLASS_BATTLE_GIRL",
@@ -631,7 +631,7 @@ if __name__ == "__main__":
             elif type == "Steel":
                 for trainer_class in [
                     "TRAINER_CLASS_COOLTRAINER",
-                    "TRAINER_CLASS_COOLTRAINER_2",
+                    # "TRAINER_CLASS_COOLTRAINER_2",
                     "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_EXPERT",
                     # "TRAINER_CLASS_BATTLE_GIRL",
@@ -669,6 +669,9 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_LADY",
                     "TRAINER_CLASS_KINDLER",
                     "TRAINER_CLASS_PSYCHIC",
+                    "TRAINER_CLASS_SCHOOL_KID",
+                    "TRAINER_CLASS_BUG_CATCHER",
+                    "TRAINER_CLASS_BUG_MANIAC",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -780,7 +783,7 @@ if __name__ == "__main__":
             elif type == "Dragon":
                 for trainer_class in [
                     "TRAINER_CLASS_COOLTRAINER",
-                    "TRAINER_CLASS_COOLTRAINER_2",
+                    # "TRAINER_CLASS_COOLTRAINER_2",
                     "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_EXPERT",
                     # "TRAINER_CLASS_RUIN_MANIAC",
@@ -813,7 +816,7 @@ if __name__ == "__main__":
             for trainer_class in [
                 "TRAINER_CLASS_EXPERT",
                 "TRAINER_CLASS_COOLTRAINER",
-                "TRAINER_CLASS_COOLTRAINER_2",
+                # "TRAINER_CLASS_COOLTRAINER_2",
                 "TRAINER_CLASS_GENTLEMAN",
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
@@ -832,7 +835,7 @@ if __name__ == "__main__":
             for trainer_class in [
                 "TRAINER_CLASS_EXPERT",
                 "TRAINER_CLASS_COOLTRAINER",
-                "TRAINER_CLASS_COOLTRAINER_2",
+                # "TRAINER_CLASS_COOLTRAINER_2",
                 "TRAINER_CLASS_GENTLEMAN",
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
@@ -940,7 +943,7 @@ if __name__ == "__main__":
             for trainer_class in [
                 "TRAINER_CLASS_EXPERT",
                 "TRAINER_CLASS_COOLTRAINER",
-                "TRAINER_CLASS_COOLTRAINER_2",
+                # "TRAINER_CLASS_COOLTRAINER_2",
                 "TRAINER_CLASS_RUIN_MANIAC",
                 "TRAINER_CLASS_GENTLEMAN",
             ]:
