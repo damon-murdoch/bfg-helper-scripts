@@ -16,14 +16,14 @@ EFFECT_RATING_DEFAULT = 0
 MOVE_RATING_MAXIMUM = 0xFF
 
 # Rating Modifiers
-MOVE_ACCURACY_MODIFIER = 1
+MOVE_ACCURACY_MODIFIER = 1.6
 
 MOVE_PRIORITY_MIN = 0
 MOVE_PRIORITY_MAX = 3
 MOVE_PRIORITY_MODIFIER = 10
 MOVE_CRIT_RATIO_MODIFIER = 10
 
-SECONDARY_EFFECT_CHANCE_MODIFIER = 0.2
+SECONDARY_EFFECT_CHANCE_MODIFIER = 0.1
 SECONDARY_EFFECT_BOOST_MODIFIER = 1  # Stat Boosts/Drops
 
 # Status/Volatile Status Effect Modifiers
@@ -43,11 +43,11 @@ SECONDARY_EFFECT_STATUS_MODIFIERS = {
     "sparklingaria": 1,
     "syrupbomb": 1,
     # Negative
-    "mustrecharge": -2,
-    "glaiverush": -1,
-    "lockedmove": -2,
-    "rage": -3,
-    "uproar": -3,
+    "mustrecharge": -3,
+    "glaiverush": 0,
+    "lockedmove": -3,
+    "rage": -5,
+    "uproar": -5,
     # Default
     "default": 0,
 }
@@ -55,12 +55,12 @@ SECONDARY_EFFECT_STATUS_MODIFIERS = {
 # Move Flag Modifiers
 MOVE_FLAG_EFFECT_MODIFIERS = {
     # Negative Flags
-    "charge": -1,
-    "recharge": -1,
-    "cantusetwice": -1,
-    "futuremove": -2,
+    "charge": -2,
+    "recharge": -2,
+    "cantusetwice": -2,
+    "futuremove": -3,
     # Relevant Flags
-    "heal": 1,
+    "heal": 2,
     "sound": 1,
     "defrost": 1,
     "bypasssub": 1,

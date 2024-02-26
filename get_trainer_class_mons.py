@@ -279,10 +279,10 @@ if __name__ == "__main__":
                     coverage[speciesId] += 1
             elif type == "Water":
                 for trainer_class in [
-                    # "TRAINER_CLASS_POKEFAN",
-                    # "TRAINER_CLASS_COOLTRAINER",
+                    "TRAINER_CLASS_POKEFAN",
+                    "TRAINER_CLASS_COOLTRAINER",
                     # "TRAINER_CLASS_COOLTRAINER_2",
-                    # "TRAINER_CLASS_GENTLEMAN",
+                    "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_TUBER_M",
                     "TRAINER_CLASS_TUBER_F",
                     "TRAINER_CLASS_SWIMMER_M",
@@ -293,8 +293,8 @@ if __name__ == "__main__":
                     # "TRAINER_CLASS_RICH_BOY",
                     # "TRAINER_CLASS_LADY",
                     "TRAINER_CLASS_POKEMANIAC",
-                    # "TRAINER_CLASS_PKMN_BREEDER",
-                    # "TRAINER_CLASS_DRAGON_TAMER",
+                    "TRAINER_CLASS_PKMN_BREEDER",
+                    "TRAINER_CLASS_DRAGON_TAMER",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -315,18 +315,18 @@ if __name__ == "__main__":
                     coverage[speciesId] += 1
             elif type == "Fire":
                 for trainer_class in [
-                    # "TRAINER_CLASS_POKEFAN",
+                    "TRAINER_CLASS_POKEFAN",
                     "TRAINER_CLASS_COOLTRAINER",
                     # "TRAINER_CLASS_COOLTRAINER_2",
                     # "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_COLLECTOR",
-                    # "TRAINER_CLASS_BATTLE_GIRL",
-                    # "TRAINER_CLASS_BLACK_BELT",
+                    "TRAINER_CLASS_BATTLE_GIRL",
+                    "TRAINER_CLASS_BLACK_BELT",
                     # "TRAINER_CLASS_RICH_BOY",
                     # "TRAINER_CLASS_LADY",
-                    # "TRAINER_CLASS_POKEMANIAC",
+                    "TRAINER_CLASS_POKEMANIAC",
                     "TRAINER_CLASS_KINDLER",
-                    # "TRAINER_CLASS_PKMN_BREEDER",
+                    "TRAINER_CLASS_PKMN_BREEDER",
                     "TRAINER_CLASS_DRAGON_TAMER",
                     "TRAINER_CLASS_CAMPER",
                     "TRAINER_CLASS_PICNICKER",
@@ -356,9 +356,9 @@ if __name__ == "__main__":
                     # "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_AROMA_LADY",
                     "TRAINER_CLASS_COLLECTOR",
-                    # "TRAINER_CLASS_RICH_BOY",
-                    # "TRAINER_CLASS_LADY",
-                    # "TRAINER_CLASS_POKEMANIAC",
+                    "TRAINER_CLASS_RICH_BOY",
+                    "TRAINER_CLASS_LADY",
+                    "TRAINER_CLASS_POKEMANIAC",
                     "TRAINER_CLASS_CAMPER",
                     "TRAINER_CLASS_PICNICKER",
                     "TRAINER_CLASS_PKMN_BREEDER",
@@ -386,7 +386,7 @@ if __name__ == "__main__":
             elif type == "Electric":
                 for trainer_class in [
                     "TRAINER_CLASS_POKEFAN",
-                    # "TRAINER_CLASS_COOLTRAINER",
+                    "TRAINER_CLASS_COOLTRAINER",
                     # "TRAINER_CLASS_COOLTRAINER_2",
                     # "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_BEAUTY",
@@ -395,11 +395,11 @@ if __name__ == "__main__":
                     # "TRAINER_CLASS_CAMPER",
                     # "TRAINER_CLASS_PICNICKER",
                     "TRAINER_CLASS_PKMN_BREEDER",
-                    # "TRAINER_CLASS_COLLECTOR",
+                    "TRAINER_CLASS_COLLECTOR",
                     "TRAINER_CLASS_POKEMANIAC",
-                    # "TRAINER_CLASS_SCHOOL_KID",
-                    # "TRAINER_CLASS_LASS",
-                    # "TRAINER_CLASS_YOUNGSTER",
+                    "TRAINER_CLASS_SCHOOL_KID",
+                    "TRAINER_CLASS_LASS",
+                    "TRAINER_CLASS_YOUNGSTER",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -420,16 +420,19 @@ if __name__ == "__main__":
                     coverage[speciesId] += 1
             elif type == "Flying":
                 for trainer_class in [
-                    # "TRAINER_CLASS_POKEFAN",
+                    "TRAINER_CLASS_POKEFAN",
+                    "TRAINER_CLASS_EXPERT",
+                    "TRAINER_CLASS_GENTLEMAN",
+                    "TRAINER_CLASS_COOLTRAINER",
                     "TRAINER_CLASS_BIRD_KEEPER",
                     "TRAINER_CLASS_RICH_BOY",
                     "TRAINER_CLASS_LADY",
                     # "TRAINER_CLASS_GUITARIST",
-                    # "TRAINER_CLASS_CAMPER",
-                    # "TRAINER_CLASS_PICNICKER",
-                    # "TRAINER_CLASS_PKMN_BREEDER",
+                    "TRAINER_CLASS_CAMPER",
+                    "TRAINER_CLASS_PICNICKER",
+                    "TRAINER_CLASS_PKMN_BREEDER",
                     "TRAINER_CLASS_PKMN_RANGER",
-                    # "TRAINER_CLASS_SCHOOL_KID",
+                    "TRAINER_CLASS_SCHOOL_KID",
                     "TRAINER_CLASS_LASS",
                     "TRAINER_CLASS_YOUNGSTER",
                 ]:
@@ -455,8 +458,8 @@ if __name__ == "__main__":
                 for trainer_class in [
                     "TRAINER_CLASS_BATTLE_GIRL",
                     "TRAINER_CLASS_BLACK_BELT",
-                    # "TRAINER_CLASS_HIKER",
-                    # "TRAINER_CLASS_RUIN_MANIAC",
+                    "TRAINER_CLASS_HIKER",
+                    "TRAINER_CLASS_RUIN_MANIAC",
                     "TRAINER_CLASS_SAILOR",
                     # "TRAINER_CLASS_GUITARIST",
                     # "TRAINER_CLASS_KINDLER",
@@ -484,13 +487,13 @@ if __name__ == "__main__":
             elif type == "Poison":
                 for trainer_class in [
                     "TRAINER_CLASS_HEX_MANIAC",
-                    # "TRAINER_CLASS_GUITARIST",
+                    "TRAINER_CLASS_GUITARIST",
                     "TRAINER_CLASS_KINDLER",
                     # "TRAINER_CLASS_CAMPER",
                     # "TRAINER_CLASS_PICNICKER",
                     "TRAINER_CLASS_BATTLE_GIRL",
                     "TRAINER_CLASS_BLACK_BELT",
-                    # "TRAINER_CLASS_DRAGON_TAMER",
+                    "TRAINER_CLASS_DRAGON_TAMER",
                     "TRAINER_CLASS_NINJA_BOY",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
@@ -518,9 +521,9 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_BATTLE_GIRL",
                     "TRAINER_CLASS_BLACK_BELT",
                     "TRAINER_CLASS_TRIATHLETE",
-                    # "TRAINER_CLASS_POKEMANIAC",
-                    # "TRAINER_CLASS_GUITARIST",
-                    # "TRAINER_CLASS_KINDLER",
+                    "TRAINER_CLASS_POKEMANIAC",
+                    "TRAINER_CLASS_GUITARIST",
+                    "TRAINER_CLASS_KINDLER",
                     # "TRAINER_CLASS_NINJA_BOY",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
@@ -544,7 +547,7 @@ if __name__ == "__main__":
                 for trainer_class in [
                     "TRAINER_CLASS_RUIN_MANIAC",
                     "TRAINER_CLASS_HIKER",
-                    # "TRAINER_CLASS_EXPERT",
+                    "TRAINER_CLASS_EXPERT",
                     "TRAINER_CLASS_BATTLE_GIRL",
                     "TRAINER_CLASS_BLACK_BELT",
                     # "TRAINER_CLASS_POKEMANIAC",
@@ -579,7 +582,7 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_FISHERMAN",
                     "TRAINER_CLASS_SCHOOL_KID",
                     # "TRAINER_CLASS_LASS",
-                    # "TRAINER_CLASS_YOUNGSTER",
+                    "TRAINER_CLASS_YOUNGSTER",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -603,11 +606,11 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_PSYCHIC",
                     "TRAINER_CLASS_HEX_MANIAC",
                     # "TRAINER_CLASS_EXPERT",
-                    # "TRAINER_CLASS_GUITARIST",
+                    "TRAINER_CLASS_GUITARIST",
                     "TRAINER_CLASS_KINDLER",
                     "TRAINER_CLASS_RUIN_MANIAC",
                     "TRAINER_CLASS_DRAGON_TAMER",
-                    # "TRAINER_CLASS_NINJA_BOY",
+                    "TRAINER_CLASS_NINJA_BOY",
                     # "TRAINER_CLASS_YOUNGSTER",
                     "TRAINER_CLASS_GENTLEMAN",
                 ]:
@@ -634,10 +637,10 @@ if __name__ == "__main__":
                     # "TRAINER_CLASS_COOLTRAINER_2",
                     "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_EXPERT",
-                    # "TRAINER_CLASS_BATTLE_GIRL",
-                    # "TRAINER_CLASS_BLACK_BELT",
+                    "TRAINER_CLASS_BATTLE_GIRL",
+                    "TRAINER_CLASS_BLACK_BELT",
                     "TRAINER_CLASS_HIKER",
-                    # "TRAINER_CLASS_RUIN_MANIAC",
+                    "TRAINER_CLASS_RUIN_MANIAC",
                     "TRAINER_CLASS_GUITARIST",
                     "TRAINER_CLASS_DRAGON_TAMER",
                 ]:
@@ -664,7 +667,9 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_PARASOL_LADY",
                     "TRAINER_CLASS_AROMA_LADY",
                     "TRAINER_CLASS_HEX_MANIAC",
-                    # "TRAINER_CLASS_EXPERT",
+                    "TRAINER_CLASS_EXPERT",
+                    "TRAINER_CLASS_GENTLEMAN",
+                    "TRAINER_CLASS_COOLTRAINER",
                     "TRAINER_CLASS_RICH_BOY",
                     "TRAINER_CLASS_LADY",
                     "TRAINER_CLASS_KINDLER",
@@ -672,6 +677,9 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_SCHOOL_KID",
                     "TRAINER_CLASS_BUG_CATCHER",
                     "TRAINER_CLASS_BUG_MANIAC",
+                    "TRAINER_CLASS_TUBER_M",
+                    "TRAINER_CLASS_SWIMMER_M",
+                    "TRAINER_CLASS_FISHERMAN",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -699,7 +707,7 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_TUBER_F",
                     "TRAINER_CLASS_SWIMMER_M",
                     "TRAINER_CLASS_SWIMMER_F",
-                    # "TRAINER_CLASS_FISHERMAN",
+                    "TRAINER_CLASS_FISHERMAN",
                     "TRAINER_CLASS_TRIATHLETE",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
@@ -724,9 +732,9 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_HEX_MANIAC",
                     # "TRAINER_CLASS_EXPERT",
                     "TRAINER_CLASS_GUITARIST",
-                    # "TRAINER_CLASS_KINDLER",
-                    # "TRAINER_CLASS_BATTLE_GIRL",
-                    # "TRAINER_CLASS_BLACK_BELT",
+                    "TRAINER_CLASS_KINDLER",
+                    "TRAINER_CLASS_BATTLE_GIRL",
+                    "TRAINER_CLASS_BLACK_BELT",
                     "TRAINER_CLASS_RUIN_MANIAC",
                     # "TRAINER_CLASS_DRAGON_TAMER",
                     "TRAINER_CLASS_PSYCHIC",
@@ -758,9 +766,11 @@ if __name__ == "__main__":
                     "TRAINER_CLASS_TRIATHLETE",
                     "TRAINER_CLASS_RICH_BOY",
                     "TRAINER_CLASS_LADY",
-                    # "TRAINER_CLASS_POKEMANIAC",
+                    "TRAINER_CLASS_POKEMANIAC",
                     "TRAINER_CLASS_LASS",
                     "TRAINER_CLASS_PSYCHIC",
+                    "TRAINER_CLASS_TUBER_F",
+                    "TRAINER_CLASS_SWIMMER_F",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -786,10 +796,18 @@ if __name__ == "__main__":
                     # "TRAINER_CLASS_COOLTRAINER_2",
                     "TRAINER_CLASS_GENTLEMAN",
                     "TRAINER_CLASS_EXPERT",
-                    # "TRAINER_CLASS_RUIN_MANIAC",
-                    # "TRAINER_CLASS_POKEMANIAC",
+                    "TRAINER_CLASS_HIKER",
+                    "TRAINER_CLASS_RUIN_MANIAC",
+                    "TRAINER_CLASS_POKEMANIAC",
                     "TRAINER_CLASS_DRAGON_TAMER",
                     # "TRAINER_CLASS_NINJA_BOY",
+                    "TRAINER_CLASS_BIRD_KEEPER",
+                    "TRAINER_CLASS_COLLECTOR",
+                    "TRAINER_CLASS_SAILOR",
+                    "TRAINER_CLASS_TUBER_M",
+                    "TRAINER_CLASS_TUBER_F",
+                    "TRAINER_CLASS_SWIMMER_M",
+                    "TRAINER_CLASS_SWIMMER_F",
                 ]:
                     if SPLIT_MEGA == True and speciesId in megas:
                         classes_mega[trainer_class].append(speciesId)
@@ -821,46 +839,16 @@ if __name__ == "__main__":
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
                     classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
-                ):
-                    classes_restricted[trainer_class].append(speciesId)
-                else:
-                    classes[trainer_class].append(speciesId)
-                coverage[speciesId] += 1
-
-        # Restricted Legendaries
-        if is_tagged(species, "Restricted Legendary"):
-            for trainer_class in [
-                "TRAINER_CLASS_EXPERT",
-                "TRAINER_CLASS_COOLTRAINER",
-                # "TRAINER_CLASS_COOLTRAINER_2",
-                "TRAINER_CLASS_GENTLEMAN",
-            ]:
-                if SPLIT_MEGA == True and speciesId in megas:
-                    classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
-                ):
-                    classes_restricted[trainer_class].append(speciesId)
-                else:
-                    classes[trainer_class].append(speciesId)
-                coverage[speciesId] += 1
-
-        # Mythical Pokemon
-        if is_tagged(species, "Mythical"):
-            for trainer_class in [
-                "TRAINER_CLASS_EXPERT",
-                "TRAINER_CLASS_GENTLEMAN",
-                "TRAINER_CLASS_COLLECTOR",
-            ]:
-                if SPLIT_MEGA == True and speciesId in megas:
-                    classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
+                if (
+                    SPLIT_RESTRICTED == True
+                    and speciesId in restricteds
+                    or (
+                        (
+                            INCLUDE_BOX_LEGEND
+                            and is_tagged(species, "Restricted Legendary")
+                        )
+                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                    )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
                 else:
@@ -876,9 +864,16 @@ if __name__ == "__main__":
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
                     classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
+                if (
+                    SPLIT_RESTRICTED == True
+                    and speciesId in restricteds
+                    or (
+                        (
+                            INCLUDE_BOX_LEGEND
+                            and is_tagged(species, "Restricted Legendary")
+                        )
+                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                    )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
                 else:
@@ -894,9 +889,16 @@ if __name__ == "__main__":
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
                     classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
+                if (
+                    SPLIT_RESTRICTED == True
+                    and speciesId in restricteds
+                    or (
+                        (
+                            INCLUDE_BOX_LEGEND
+                            and is_tagged(species, "Restricted Legendary")
+                        )
+                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                    )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
                 else:
@@ -906,6 +908,9 @@ if __name__ == "__main__":
         # Levitating
         if "Levitate" in species["abilities"].values():
             for trainer_class in [
+                "TRAINER_CLASS_EXPERT",
+                "TRAINER_CLASS_GENTLEMAN",
+                "TRAINER_CLASS_COOLTRAINER",
                 "TRAINER_CLASS_RUIN_MANIAC",
                 "TRAINER_CLASS_EXPERT",
                 "TRAINER_CLASS_PSYCHIC",
@@ -913,9 +918,16 @@ if __name__ == "__main__":
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
                     classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
+                if (
+                    SPLIT_RESTRICTED == True
+                    and speciesId in restricteds
+                    or (
+                        (
+                            INCLUDE_BOX_LEGEND
+                            and is_tagged(species, "Restricted Legendary")
+                        )
+                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                    )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
                 else:
@@ -929,9 +941,16 @@ if __name__ == "__main__":
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
                     classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
+                if (
+                    SPLIT_RESTRICTED == True
+                    and speciesId in restricteds
+                    or (
+                        (
+                            INCLUDE_BOX_LEGEND
+                            and is_tagged(species, "Restricted Legendary")
+                        )
+                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                    )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
                 else:
@@ -949,9 +968,16 @@ if __name__ == "__main__":
             ]:
                 if SPLIT_MEGA == True and speciesId in megas:
                     classes_mega[trainer_class].append(speciesId)
-                if SPLIT_RESTRICTED == True and (
-                    is_tagged(species, "Restricted Legendary")
-                    or is_tagged(species, "Mythical")
+                if (
+                    SPLIT_RESTRICTED == True
+                    and speciesId in restricteds
+                    or (
+                        (
+                            INCLUDE_BOX_LEGEND
+                            and is_tagged(species, "Restricted Legendary")
+                        )
+                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                    )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
                 else:
