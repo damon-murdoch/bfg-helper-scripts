@@ -19,7 +19,7 @@ SPLIT_RESTRICTED = True
 
 # Include Box Legends/Mythicals in Restricted List
 INCLUDE_BOX_LEGEND = True
-INCLUDE_MYTHICAL = False
+INCLUDE_MYTHICAL = True
 
 # Custom Restricteds
 restricteds = ["deoxys", "arceus"]
@@ -155,6 +155,7 @@ trainer_classes = [
     # 'TRAINER_CLASS_PIKE_QUEEN',
     # 'TRAINER_CLASS_PYRAMID_KING',
     # 'TRAINER_CLASS_RS_PROTAG',
+    "TRAINER_CLASS_DEFAULT"
 ]
 
 
@@ -254,6 +255,25 @@ if __name__ == "__main__":
     for speciesId in pokemon:
         species = POKEMON[speciesId]
         coverage[speciesId] = 0
+
+        # Default Trainer Class (Contains All Species)
+        if SPLIT_MEGA == True and speciesId in megas:
+            classes_mega["TRAINER_CLASS_DEFAULT"].append(speciesId)
+        if (
+            SPLIT_RESTRICTED == True
+            and speciesId in restricteds
+            or (
+                (
+                    INCLUDE_BOX_LEGEND
+                    and is_tagged(species, "Restricted Legendary")
+                )
+                or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+            )
+        ):
+            classes_restricted["TRAINER_CLASS_DEFAULT"].append(speciesId)
+        else: 
+            classes["TRAINER_CLASS_DEFAULT"].append(speciesId)
+        # coverage[speciesId] += 1
 
         # Process classes based on types
         for type in species["types"]:
