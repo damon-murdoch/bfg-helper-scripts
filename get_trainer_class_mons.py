@@ -1,7 +1,9 @@
 # Showdown Data
 import src.showdown as showdown
 
-import math
+# Common Library
+import src.common as common
+
 import os
 
 OUTPUT_DIRECTORY = "out"
@@ -155,45 +157,8 @@ trainer_classes = [
     # 'TRAINER_CLASS_PIKE_QUEEN',
     # 'TRAINER_CLASS_PYRAMID_KING',
     # 'TRAINER_CLASS_RS_PROTAG',
-    "TRAINER_CLASS_DEFAULT"
+    "TRAINER_CLASS_DEFAULT",
 ]
-
-
-def convert_const_to_camel(const):
-    parts = const.split("_")
-    return parts[0].lower() + "".join(word.capitalize() for word in parts[1:])
-
-
-def get_species_constant(species_name):
-    constant = species_name.upper()
-
-    # Update formatting
-    constant = constant.replace(" ", "_").replace("-", "_")
-
-    # Replace Special Characters
-    constant = (
-        constant.replace("’", "").replace(":", "").replace("%", "").replace(".", "")
-    )
-
-    # Update characers / constants
-    constant = (
-        constant.replace("É", "E")
-        .replace("_ALOLA", "_ALOLAN")
-        .replace("_GALAR", "_GALARIAN")
-        .replace("_HISUI", "_HISUIAN")
-        .replace("_PALDEA", "_PALDEAN")
-    )
-
-    return f"SPECIES_{constant}"
-
-
-def is_tagged(species, tag):
-    return "tags" in species and tag in species["tags"]
-
-
-def is_forme(species, forme):
-    return "forme" in species and species["forme"] == forme
-
 
 # Main Process
 if __name__ == "__main__":
@@ -243,7 +208,7 @@ if __name__ == "__main__":
         classes_mega[trainer_class] = []
         classes_restricted[trainer_class] = []
 
-        classes_lookup[trainer_class] = convert_const_to_camel(
+        classes_lookup[trainer_class] = common.convert_const_to_camel(
             f"G_SPECIES_LIST_{trainer_class}"
         )
 
@@ -265,13 +230,13 @@ if __name__ == "__main__":
             or (
                 (
                     INCLUDE_BOX_LEGEND
-                    and is_tagged(species, "Restricted Legendary")
+                    and common.is_tagged(species, "Restricted Legendary")
                 )
-                or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
             )
         ):
             classes_restricted["TRAINER_CLASS_DEFAULT"].append(speciesId)
-        else: 
+        else:
             classes["TRAINER_CLASS_DEFAULT"].append(speciesId)
         # coverage[speciesId] += 1
 
@@ -288,9 +253,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -324,9 +292,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -359,9 +330,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -394,9 +368,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -429,9 +406,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -464,9 +444,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -495,9 +478,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -524,9 +510,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -554,9 +543,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -583,9 +575,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -612,9 +607,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -642,9 +640,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -672,9 +673,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -709,9 +713,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -738,9 +745,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -768,9 +778,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -800,9 +813,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -837,9 +853,12 @@ if __name__ == "__main__":
                         or (
                             (
                                 INCLUDE_BOX_LEGEND
-                                and is_tagged(species, "Restricted Legendary")
+                                and common.is_tagged(species, "Restricted Legendary")
                             )
-                            or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                            or (
+                                INCLUDE_MYTHICAL
+                                and common.is_tagged(species, "Mythical")
+                            )
                         )
                     ):
                         classes_restricted[trainer_class].append(speciesId)
@@ -850,7 +869,7 @@ if __name__ == "__main__":
         # Special cases for specific trainer classes
 
         # Sub-Legendaries
-        if is_tagged(speciesId, "Sub-Legendary"):
+        if common.is_tagged(speciesId, "Sub-Legendary"):
             for trainer_class in [
                 "TRAINER_CLASS_EXPERT",
                 "TRAINER_CLASS_COOLTRAINER",
@@ -865,9 +884,9 @@ if __name__ == "__main__":
                     or (
                         (
                             INCLUDE_BOX_LEGEND
-                            and is_tagged(species, "Restricted Legendary")
+                            and common.is_tagged(species, "Restricted Legendary")
                         )
-                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                        or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
                     )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
@@ -890,9 +909,9 @@ if __name__ == "__main__":
                     or (
                         (
                             INCLUDE_BOX_LEGEND
-                            and is_tagged(species, "Restricted Legendary")
+                            and common.is_tagged(species, "Restricted Legendary")
                         )
-                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                        or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
                     )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
@@ -915,9 +934,9 @@ if __name__ == "__main__":
                     or (
                         (
                             INCLUDE_BOX_LEGEND
-                            and is_tagged(species, "Restricted Legendary")
+                            and common.is_tagged(species, "Restricted Legendary")
                         )
-                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                        or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
                     )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
@@ -944,9 +963,9 @@ if __name__ == "__main__":
                     or (
                         (
                             INCLUDE_BOX_LEGEND
-                            and is_tagged(species, "Restricted Legendary")
+                            and common.is_tagged(species, "Restricted Legendary")
                         )
-                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                        or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
                     )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
@@ -955,7 +974,7 @@ if __name__ == "__main__":
                 coverage[speciesId] += 1
 
         # Hisuian Formes
-        if is_forme(species, "Hisui"):
+        if common.is_forme(species, "Hisui"):
             for trainer_class in [
                 "TRAINER_CLASS_RUIN_MANIAC",
             ]:
@@ -967,9 +986,9 @@ if __name__ == "__main__":
                     or (
                         (
                             INCLUDE_BOX_LEGEND
-                            and is_tagged(species, "Restricted Legendary")
+                            and common.is_tagged(species, "Restricted Legendary")
                         )
-                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                        or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
                     )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
@@ -978,7 +997,7 @@ if __name__ == "__main__":
                 coverage[speciesId] += 1
 
         # Paradox Pokemon
-        if is_tagged(species, "Paradox"):
+        if common.is_tagged(species, "Paradox"):
             for trainer_class in [
                 "TRAINER_CLASS_EXPERT",
                 "TRAINER_CLASS_COOLTRAINER",
@@ -994,9 +1013,9 @@ if __name__ == "__main__":
                     or (
                         (
                             INCLUDE_BOX_LEGEND
-                            and is_tagged(species, "Restricted Legendary")
+                            and common.is_tagged(species, "Restricted Legendary")
                         )
-                        or (INCLUDE_MYTHICAL and is_tagged(species, "Mythical"))
+                        or (INCLUDE_MYTHICAL and common.is_tagged(species, "Mythical"))
                     )
                 ):
                     classes_restricted[trainer_class].append(speciesId)
@@ -1033,7 +1052,7 @@ if __name__ == "__main__":
         )
         for speciesId in class_list:
             species = POKEMON[speciesId]
-            constant = get_species_constant(species["name"])
+            constant = common.get_species_constant(species["name"])
             output.append(f"\t{constant},")
         output.append("};\n")
 
@@ -1053,7 +1072,7 @@ if __name__ == "__main__":
             )
             for speciesId in mega_list:
                 species = POKEMON[speciesId]
-                constant = get_species_constant(species["name"])
+                constant = common.get_species_constant(species["name"])
                 output.append(f"\t{constant},")
             output.append("};\n")
 
@@ -1073,7 +1092,7 @@ if __name__ == "__main__":
             )
             for speciesId in restricted_list:
                 species = POKEMON[speciesId]
-                constant = get_species_constant(species["name"])
+                constant = common.get_species_constant(species["name"])
                 output.append(f"\t{constant},")
             output.append("};\n")
 
