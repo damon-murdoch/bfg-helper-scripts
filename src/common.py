@@ -1,3 +1,23 @@
+def pory_format(string, delim="_"):
+
+    # Update formatting
+    pory_str = string.replace("_", " ").replace("-", " ")
+    pory_str = pory_str.replace("'", " ").replace(":", " ")
+
+    # Remove Brackets
+    pory_str = pory_str.replace("(", "").replace(")","")
+    pory_str = pory_str.replace("[", "").replace("]","")
+    pory_str = pory_str.replace("}", "").replace("}","")
+
+    # Split the string on the spaces
+    split = pory_str.split(" ")
+
+    # Convert strings to upper case
+    for i in range(len(split)):
+        split[i] = split[i].capitalize()
+
+    # Return rejoined string
+    return delim.join(split)
 
 def convert_const_to_camel(const):
     parts = const.split("_")
@@ -31,6 +51,8 @@ def get_species_constant(species_name):
         .replace("_GALAR", "_GALARIAN")
         .replace("_HISUI", "_HISUIAN")
         .replace("_PALDEA", "_PALDEAN")
+        .replace("_SINGLE_STRIKE", "_SINGLE_STRIKE_FORME")
+        .replace("_RAPID_STRIKE", "_RAPID_STRIKE_FORME")
     )
 
     return f"SPECIES_{constant}"
